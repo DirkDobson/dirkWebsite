@@ -9,11 +9,16 @@ class Home extends React.Component {
       <Header>Welcome To My Website</Header>
       <RSide/>
       <LSide/>
+      adsf
       </Body>
       </>
     )
   }
 }
+
+const Body = styled.div`
+  background-color: #000000;
+`
 
 const Header = styled.div`
   background-color: #00CED1;
@@ -21,25 +26,18 @@ const Header = styled.div`
   height 3em;
   text-align: center;
 `
-const Body = styled.div`
-  background-color: #000000;
-  height: 100%;
-  width: 100%;
-`
 const RSide = styled.div`
-  bacground-color: 111E6C;
-  display: float;
+  background-color: #111E6C;
   float: right;
-  height: 500px;
-  width: 30px;
+  height: 100em;
+  width: 5em;
 `
 
 const LSide = styled.div`
-  bacground-color: 111E6C;
-  display: float;
+  background-color: #111E6C;
   float: left;
-  height: 500px;
-  width: 30px;
+  height: 100em;
+  width: 5em;
 `
 
 export default Home;
