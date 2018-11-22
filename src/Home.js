@@ -9,7 +9,6 @@ class Home extends React.Component {
       <Header>Welcome To My Website</Header>
       <RSide/>
       <LSide/>
-      adsf
       </Body>
       </>
     )
