@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import Game from './Game.js';
 
 class Home extends React.Component {
   render() {
