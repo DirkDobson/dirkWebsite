@@ -9,6 +9,7 @@ class Home extends React.Component {
       <Body>
       <Header>Welcome To My Website</Header>
       <RSide/>
+      <Game/>
       <LSide/>
       </Body>
       </>

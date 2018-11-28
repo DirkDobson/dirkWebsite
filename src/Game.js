@@ -5,31 +5,31 @@ class Game extends React.Children {
     this.updateCanvas();
   }
   updateCanvas() {
-    const ctx = this.refs.canvas.getContext('2d');
-    let x = this.canvas.width/2;
-    let y = this.canvas.hieght-30;
-    let dx = 5;
-    let dy = -5;
-    const ballRadius = 10;
-    const paddleHeight = 10;
-    const paddleWidth = 75;
-    let paddleX = (this.canvas.width-paddleWidth)/2;
-    let rightPressed = false;
-    let leftPressed = false;
-    let brickRowCount = 3;
-    let brickColumnCount = 5;
-    const brickWidth = 75;
-    const brickHeight = 20;
-    const brickOffsetTop = 30;
-    const brickOffsetLeft = 30;
-    let ballColor = 0;
-    let score = 0;
-    let lives = 3;
-    let bricks = []
-    for (let i = 0; i < brickColumnCount; i++) {
-      bricks[i] = [];
-      for(var u = 0; u < brickRowCount; u++) {
-        bricks[i][u] = { x: 0, y: 0, status: 1 };
+    this.ctx = this.refs.canvas.getContext('2d');
+    this.x = this.canvas.width/2;
+    this.y = this.canvas.hieght-30;
+    this.dx = 5;
+    this.dy = -5;
+    this.ballRadius = 10;
+    this.paddleHeight = 10;
+    this.paddleWidth = 75;
+    this.paddleX = (this.canvas.width-this.paddleWidth)/2;
+    this.rightPressed = false;
+    this.leftPressed = false;
+    this.brickRowCount = 3;
+    this.brickColumnCount = 5;
+    this.brickWidth = 75;
+    this.brickHeight = 20;
+    this.brickOffsetTop = 30;
+    this.brickOffsetLeft = 30;
+    this.ballColor = 0;
+    this.score = 0;
+    this.lives = 3;
+    this.bricks = []
+    for (let i = 0; i < this.brickColumnCount; i++) {
+      this.bricks[i] = [];
+      for(var u = 0; u < this.brickRowCount; u++) {
+        this.bricks[i][u] = { x: 0, y: 0, status: 1 };
       }
     }
   }
