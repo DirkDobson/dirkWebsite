@@ -34,6 +34,17 @@ class Game extends React.Component {
     }
   }
 
+  drawBall = () => {
+    this.ctx.beginPath();
+    this.ctx.arc(this.x, this.y, this.ballRadius, 0, Math.PI*2);
+    this.ctx.fillStyle = "#0095DD";
+    if ( this.ballColor == true ) {
+      this.ctx.fillStyle = "#ff0000";
+    } else { this.ctx.fillStyle = "#0095DD"}
+    this.ctx.fill();
+    this.ctx.closePath();
+  }
+
 
   draw = () => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
