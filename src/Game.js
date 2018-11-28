@@ -34,6 +34,7 @@ class Game extends React.Children {
     }
   }
 
+
   draw = () => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.drawBricks();
@@ -69,10 +70,10 @@ class Game extends React.Children {
           }
         }
     }
-    if(this.rightPressed && this.paddleX < this.canvas.width-this.paddleWidth) {
+    if(this.e.key === "d" && this.paddleX < this.canvas.width-this.paddleWidth) {
       this.paddleX += 7;
   }
-  else if(this.leftPressed && this.paddleX > 0) {
+  else if(this.e.key === "a" && this.paddleX > 0) {
       this.paddleX -= 7;
   }
   requestAnimationFrame(this.draw());
