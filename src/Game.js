@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Game extends React.Children {
+class Game extends React.Component {
   componentDidMount() {
     this.updateCanvas();
   }
