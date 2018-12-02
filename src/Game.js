@@ -1,4 +1,10 @@
 import React from 'react'
+import {
+  Layer, 
+  Rect, 
+  Stage, 
+  Group,
+} from 'react-konva';
 
 class Game extends React.Component {
   componentDidMount() {
@@ -47,75 +53,81 @@ class Game extends React.Component {
 
 
   draw = () => {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.drawBricks();
-    this.drawBall();
-    this.x += this.dx;
-    this.y += this.dy;
-    this.drawPaddle();
-    this.drawScore();
-    this.drawLives();
-    this.collisionDetection();
-    if(this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < 0) {
-      this.dx = -this.dx;
-    }
-    if(this.y + this.dy < this.ballRadius) {
-      this.dy = -this.dy;
-    } else if (this.y + this.dy > this.canvas.height-this.ballRadius) {
-        if ( this.x > this.paddleX && this.paddleX + this.paddleWidth) {
-          this.dy = -this.dy;
-          this.ballColor = !this.ballColor
-        }
-        else {
-          this.lives--;
-          if(!this.lives) {
-              alert("GAME OVER");
-              document.location.reload();
+    return (
+      <Stage fill="#00D2FF" draggable
+        sceneFunc={function(ctx) {
+      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+      this.drawBricks()
+      this.drawBall();
+      this.x += this.dx;
+      this.y += this.dy;
+      this.drawPaddle();
+      this.drawScore();
+      this.drawLives();
+      this.collisionDetection();
+      if(this.x + this.dx > this.canvas.width - this.ballRadius || this.x + this.dx < 0) {
+        this.dx = -this.dx;
+      }
+      if(this.y + this.dy < this.ballRadius) {
+        this.dy = -this.dy;
+      } else if (this.y + this.dy > this.canvas.height-this.ballRadius) {
+          if ( this.x > this.paddleX && this.paddleX + this.paddleWidth) {
+            this.dy = -this.dy;
+            this.ballColor = !this.ballColor
           }
           else {
-              this.x = this.canvas.width/2;
-              this.y = this.canvas.height-30;
-              this.dx = 5;
-              this.dy = -5;
-              this.paddleX = (this.canvas.width-this.paddleWidth)/2;
+            this.lives--;
+            if(!this.lives) {
+                alert("GAME OVER");
+                document.location.reload();
+            }
+            else {
+                this.x = this.canvas.width/2;
+                this.y = this.canvas.height-30;
+                this.dx = 5;
+                this.dy = -5;
+                this.paddleX = (this.canvas.width-this.paddleWidth)/2;
+            }
           }
-        }
+      }
+      if(this.e.key === "d" && this.paddleX < this.canvas.width-this.paddleWidth) {
+        this.paddleX += 7;
     }
-    if(this.e.key === "d" && this.paddleX < this.canvas.width-this.paddleWidth) {
-      this.paddleX += 7;
+    else if(this.e.key === "a" && this.paddleX > 0) {
+        this.paddleX -= 7;
+    }
+    requestAnimationFrame(this.draw());
+  }}
+  />
+    );
   }
-  else if(this.e.key === "a" && this.paddleX > 0) {
-      this.paddleX -= 7;
-  }
-  requestAnimationFrame(this.draw());
-  }
-  
+    
 
-  drawPaddle = () => {
-    this.ctx.beginPath();
-    this.ctx.rect(this.paddleX, this.canvas.height-this.paddleHeight, this.paddleWidth, this.paddleHeight)
-    this.ctx.fillStyle = "#0095DD";
-    this.ctx.fill();
-    this.ctx.closePath();
-  }
+    drawPaddle = () => {
+      this.ctx.beginPath();
+      this.ctx.rect(this.paddleX, this.canvas.height-this.paddleHeight, this.paddleWidth, this.paddleHeight)
+      this.ctx.fillStyle = "#0095DD";
+      this.ctx.fill();
+      this.ctx.closePath();
+    }
 
-  drawBricks = () => {
-    for(var c = 0; c < this.brickColumnCount; c++) {
-      for(var r = 0; r < this.brickRowCount; r++) {
-        if(this.bricks[c][r].status == 1) {
-          var brickX = ( c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
-          var brickY = ( r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
-          this.bricks[c][r].x = brickX;
-          this.bricks[c][r].y = brickY;
-          this.ctx.beginPath();
-          this.ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
-          this.ctx.fillStyle = "#0095DD";
-          this.ctx.fill();
-          this.ctx.closePath();
+    drawBricks = () => {
+      for(var c = 0; c < this.brickColumnCount; c++) {
+        for(var r = 0; r < this.brickRowCount; r++) {
+          if(this.bricks[c][r].status == 1) {
+            var brickX = ( c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
+            var brickY = ( r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
+            this.bricks[c][r].x = brickX;
+            this.bricks[c][r].y = brickY;
+            this.ctx.beginPath();
+            this.ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
+            this.ctx.fillStyle = "#0095DD";
+            this.ctx.fill();
+            this.ctx.closePath();
+          }
         }
       }
     }
-  }
 
   collisionDetection = () => {
     for ( var c = 0; c < this.brickColumnCount; c++ ) {
