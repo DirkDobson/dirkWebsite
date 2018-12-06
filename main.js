@@ -148,9 +148,6 @@ function collisionDetection() {
           if ( score > 0 ) {
           score = score * 2;
           } else { score++ }
-          if(score == 16384) {
-            document.getElementById("win").innerHTML = "YOU WIN, YOUR SCORE IS " + score;
-          }
         }
       }
     }
