@@ -72,7 +72,6 @@ canvas {
 }
 
 @media only screen and (max-width: 1400px) {
-  /* For mobile ipads: */
   #right {
     height: 81em;
   }
