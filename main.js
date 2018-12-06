@@ -17,7 +17,7 @@ var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
-var ballColor = false;
+var ballColorSelect = 0;
 var clicked = false;
 var score = 0;
 var lives = 1;
@@ -37,10 +37,20 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-  ctx.fillStyle = "#0095DD";
-  if ( ballColor == true ) {
-    ctx.fillStyle = "#ff0000";
-  } else { ctx.fillStyle = "#0095DD"}
+  switch (ballColorSelect){
+    case 0:
+      ctx.fillStyle = "#0095DD";
+      break;
+    case 1:
+      ctx.fillStyle = "#ff0000";
+      break;
+    case 2:
+      ctx.fillStyle = "#E8E8E8";
+      break;
+    default:
+      ballColorSelect = 0;
+      break
+  }
   ctx.fill();
   ctx.closePath();
 }
@@ -61,16 +71,16 @@ function draw() {
     return;
   }
   if(x + dx > canvas.width - ballRadius || x + dx < 0) {
-    ballColor = !ballColor
+    ballColorSelect++;
     dx = -dx;
   }
   if(y + dy < ballRadius) {
-    ballColor = !ballColor
+    ballColorSelect++;
     dy = -dy;
   } else if (y + dy > canvas.height-ballRadius) {
       if ( x > paddleX && paddleX + paddleWidth) { 
         dy = -dy;
-        ballColor = !ballColor
+        ballColorSelect++;
       }
       else {
         lives--;
@@ -148,7 +158,7 @@ function collisionDetection() {
         if ( x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
           dy = -dy;
           b.status = 0;
-          ballColor = !ballColor
+          ballColorSelect++
           if ( score > 0 ) {
           score = score * 2;
           } else { score++ }
