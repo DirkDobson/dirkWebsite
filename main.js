@@ -20,7 +20,7 @@ var brickOffsetLeft = 30;
 var ballColor = false;
 var clicked = false;
 var score = 0;
-var lives = 3;
+var lives = 1;
 
 var bricks = []
 for(var c = 0; c < brickColumnCount; c++) {
@@ -74,9 +74,10 @@ function draw() {
       }
       else {
         lives--;
-        if(!lives) {
-            document.getElementById("win").innerHTML = "GAME OVER"
-            return;
+        if(lives <= 0) {
+          drawLives();
+          document.getElementById("win").innerHTML = "GAME OVER"
+          return;
         }
         else {
             x = canvas.width/2;
@@ -99,7 +100,7 @@ requestAnimationFrame(draw);
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight)
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#ffffff";
   ctx.fill();
   ctx.closePath();
 }
@@ -114,7 +115,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = "#0095DD";
+        ctx.fillStyle = "#ffffff";
         ctx.fill();
         ctx.closePath();
       }
@@ -164,6 +165,9 @@ function drawScore() {
 }
 
 function drawLives() {
+  if ( lives <= 0 ) {
+    ctx.clearRect(200, 0, canvas.width - 65, 20);
+  }
   ctx.font = "16px Arial";
   ctx.fillStyle = "#cc0000";
   ctx.fillText("Lives: " + lives, canvas.width - 65, 20)
