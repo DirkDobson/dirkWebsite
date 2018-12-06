@@ -20,7 +20,7 @@ var brickOffsetLeft = 30;
 var ballColor = false;
 var clicked = false;
 var score = 0;
-var lives = 99;
+var lives = 3;
 
 var bricks = []
 for(var c = 0; c < brickColumnCount; c++) {
@@ -55,6 +55,10 @@ function draw() {
   drawScore();
   drawLives();
   collisionDetection();
+  if(score == 16384) {
+    document.getElementById("win").innerHTML = "YOU WIN, YOUR SCORE IS " + score;
+    return;
+  }
   if(x + dx > canvas.width - ballRadius || x + dx < 0) {
     dx = -dx;
   }
@@ -68,8 +72,8 @@ function draw() {
       else {
         lives--;
         if(!lives) {
-            alert("GAME OVER");
-            document.location.reload();
+            document.getElementById("win").innerHTML = "GAME OVER"
+            return;
         }
         else {
             x = canvas.width/2;
@@ -145,8 +149,7 @@ function collisionDetection() {
           score = score * 2;
           } else { score++ }
           if(score == 16384) {
-            alert("YOU WIN, YOUR SCORE IS " + score);
-            document.location.reload();
+            document.getElementById("win").innerHTML = "YOU WIN, YOUR SCORE IS " + score;
           }
         }
       }
@@ -173,4 +176,15 @@ function mouseMoveHandler(e) {
   }
 }
 
-document.getElementById("myCanvas").addEventListener("click", draw)
+function start() {
+  clicked = !clicked
+  if (clicked === true) {
+    draw();
+    document.getElementById("start").innerHTML = "Click to Reset";
+  } else {
+    document.location.reload();
+    document.getElementById("start").innerHTML = "Click to Start";
+  }
+}
+
+document.getElementById("myCanvas").addEventListener("click", start)
