@@ -70,3 +70,25 @@ canvas {
   height: 50em;
   width: 15em;
 }
+
+@media only screen and (max-width: 1100px) {
+  /* For mobile ipads: */
+  #right {
+    height: 81em;
+  }
+
+  #left {
+    height: 81em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #right {
+    height: 120em;
+  }
+
+  #left {
+    height: 120em;
+  }
+}
+
