@@ -71,7 +71,7 @@ canvas {
   width: 15em;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1400px) {
   /* For mobile ipads: */
   #right {
     height: 81em;
@@ -91,4 +91,45 @@ canvas {
     height: 120em;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  #right {
+    height: 120em;
+  }
+
+  #left {
+    height: 120em;
+  }
+} 
+
+
+@media only screen and (min-width: 600px) {
+  #right {
+    height: 103.7em;
+  }
+
+  #left {
+    height: 103.7em;
+  }
+}
+
+@media only screen and (min-height: 500px) {
+  #right {
+    height: 120em;
+  }
+
+  #left {
+    height: 120em;
+  }
+} 
+
+@media only screen and (min-height: 375px) {
+  #right {
+    height: 130em;
+  }
+
+  #left {
+    height: 130em;
+  }
+} 
 
