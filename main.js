@@ -65,7 +65,8 @@ function draw() {
   drawScore();
   drawLives();
   collisionDetection();
-  if(score == 16384) {
+  if(score >= 16384) {
+    drawScore();
     document.getElementById("win").style.color = "#32cd32"
     document.getElementById("win").innerHTML = "YOU WIN, YOUR SCORE IS " + score;
     return;
@@ -169,6 +170,9 @@ function collisionDetection() {
 }
 
 function drawScore() {
+  if ( score >= 16384 ) {
+    ctx.clearRect(0, 0, canvas.width - 65, 20);
+  }
   ctx.font = "16px Arial";
   ctx.fillStyle = "#cc0000";
   ctx.fillText("Score: " + score, 8, 20)
