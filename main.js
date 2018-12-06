@@ -20,7 +20,7 @@ var brickOffsetLeft = 30;
 var ballColorSelect = 0;
 var clicked = false;
 var score = 0;
-var lives = 1;
+var lives = 3;
 
 var bricks = []
 for(var c = 0; c < brickColumnCount; c++) {
@@ -186,7 +186,8 @@ function drawLives() {
 function drawIntroduction() {
   ctx.font = "30px Arial";
   ctx.fillStyle = "#32cd32";
-  ctx.fillText("Click to Start", canvas.width - canvas.width/1.5, canvas.height/2)
+  ctx.fillText("Click to Start", canvas.width - canvas.width/1.5, canvas.height/2);
+  document.getElementById("myCanvas").style.cursor = "pointer";
 }
 
 function mouseMoveHandler(e) {

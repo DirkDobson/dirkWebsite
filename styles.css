@@ -31,6 +31,17 @@ canvas {
   margin: 0 auto; 
 }
 
+.introduction {
+  text-align: center;
+  color: #F8F8F8;
+  font: 1em sans-serif;
+  /* padding: 1em; */
+}
+
+#last {
+  width: 50em;
+  margin-bottom: 3em;
+}
 #win {
   text-align: center;
   color: #cc0000;
