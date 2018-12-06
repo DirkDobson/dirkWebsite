@@ -56,16 +56,19 @@ function draw() {
   drawLives();
   collisionDetection();
   if(score == 16384) {
+    document.getElementById("win").style.color = "#32cd32"
     document.getElementById("win").innerHTML = "YOU WIN, YOUR SCORE IS " + score;
     return;
   }
   if(x + dx > canvas.width - ballRadius || x + dx < 0) {
+    ballColor = !ballColor
     dx = -dx;
   }
   if(y + dy < ballRadius) {
+    ballColor = !ballColor
     dy = -dy;
   } else if (y + dy > canvas.height-ballRadius) {
-      if ( x > paddleX && paddleX + paddleWidth) {
+      if ( x > paddleX && paddleX + paddleWidth) { 
         dy = -dy;
         ballColor = !ballColor
       }
@@ -156,19 +159,19 @@ function collisionDetection() {
 
 function drawScore() {
   ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#cc0000";
   ctx.fillText("Score: " + score, 8, 20)
 }
 
 function drawLives() {
   ctx.font = "16px Arial";
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#cc0000";
   ctx.fillText("Lives: " + lives, canvas.width - 65, 20)
 }
 
 function drawIntroduction() {
   ctx.font = "30px Arial";
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#32cd32";
   ctx.fillText("Click to Start", canvas.width - canvas.width/1.5, canvas.height/2)
 }
 
