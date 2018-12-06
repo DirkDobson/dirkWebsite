@@ -166,6 +166,12 @@ function drawLives() {
   ctx.fillText("Lives: " + lives, canvas.width - 65, 20)
 }
 
+function drawIntroduction() {
+  ctx.font = "30px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Click to Start", canvas.width - canvas.width/1.5, canvas.height/2)
+}
+
 function mouseMoveHandler(e) {
   var relativeX = e.clientX - canvas.offsetLeft;
   if ( relativeX  > 0 + paddleWidth/2 && relativeX < canvas.width - paddleWidth/2 ) {
@@ -179,9 +185,9 @@ function start() {
     draw();
     document.getElementById("start").innerHTML = "Click to Reset";
   } else {
+    document.getElementById("start").innerHTML = "";
     document.location.reload();
-    document.getElementById("start").innerHTML = "Click to Start";
   }
 }
-
+drawIntroduction();
 document.getElementById("myCanvas").addEventListener("click", start)
