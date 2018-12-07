@@ -31,6 +31,18 @@ canvas {
   margin: 0 auto; 
 }
 
+a {
+  color: #EE82EE;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #BA55D3
+}
+
 .introduction {
   text-align: center;
   color: #F8F8F8;
