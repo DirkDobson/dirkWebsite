@@ -135,18 +135,18 @@ function drawBricks() {
 }
 
 function keyDownHandler(e) {
-  if(e.keyCode == 39) {
+  if(e.keyCode == 39 || e.keyCode == 68) {
     rightPressed = true;
-  } else if (e.keyCode == 37) {
+  } else if (e.keyCode == 37 || e.keyCode == 65) {
     leftPressed = true;
   }
 }
 
 function keyUpHandler(e) {
-  if(e.keyCode == 39) {
+  if(e.keyCode == 39 || e.keyCode == 68) {
       rightPressed = false;
   }
-  else if(e.keyCode == 37) {
+  else if(e.keyCode == 37  || e.keyCode == 65) {
       leftPressed = false;
   }
 }
