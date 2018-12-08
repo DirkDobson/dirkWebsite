@@ -48,7 +48,15 @@ a:visited {
   text-align: center;
   color: #F8F8F8;
   font: 1em sans-serif;
-  /* padding: 1em; */
+}
+
+.logo { 
+  height: 2em;
+  width: 2em;
+  padding: .5em;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
 }
 
 #last {
@@ -90,23 +98,6 @@ a:visited {
   margin: 1em;
   margin-left: auto;
   margin-right: auto;
-}
-
-#github { 
-  height: 2em;
-  width: 2em;
-  padding-right: 1em;
-  margin-top: auto;
-  margin-bottom: auto;
-  cursor: pointer;
-}
-
-#linkedin {
-  height: 2em;
-  width: 2em;
-  margin-top: auto;
-  margin-bottom: auto;
-  cursor: pointer;
 }
 
 #images {
