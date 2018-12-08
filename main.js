@@ -78,10 +78,16 @@ function draw() {
   if(y + dy < ballRadius) {
     ballColorSelect++;
     dy = -dy;
-  } else if (y + dy > canvas.height-ballRadius) {
+  } else if (y + dy > canvas.height - ballRadius) {
       if ( x > paddleX && paddleX + paddleWidth) { 
         dy = -dy;
         ballColorSelect++;
+        if (rightPressed == true) {
+          dx = 5;
+        }
+        if (leftPressed ==true ) {
+          dx = -5;
+        }
       }
       else {
         tries--;
