@@ -39,10 +39,10 @@ function drawBall() {
   ctx.arc(x, y, ballRadius, 0, Math.PI*2);
   switch (ballColorSelect){
     case 0:
-      ctx.fillStyle = "#0095DD";
+      ctx.fillStyle = "#00ffbc";
       break;
     case 1:
-      ctx.fillStyle = "#ff0000";
+      ctx.fillStyle = "#8ea5ff";
       break;
     case 2:
       ctx.fillStyle = "#E8E8E8";
@@ -180,7 +180,7 @@ function drawScore() {
     ctx.clearRect(0, 0, canvas.width - 65, 20);
   }
   ctx.font = "16px Arial";
-  ctx.fillStyle = "#cc0000";
+  ctx.fillStyle = "#FFFF00";
   ctx.fillText("Score: " + score, 8, 20)
 }
 
@@ -189,13 +189,13 @@ function drawTries() {
     ctx.clearRect(200, 0, canvas.width - 65, 20);
   }
   ctx.font = "16px Arial";
-  ctx.fillStyle = "#cc0000";
+  ctx.fillStyle = "#FFFF00";
   ctx.fillText("Tries: " + tries, canvas.width - 65, 20)
 }
 
 function drawIntroduction() {
   ctx.font = "30px Arial";
-  ctx.fillStyle = "#32cd32";
+  ctx.fillStyle = "#F8F8F8";
   ctx.fillText("Click to Start", canvas.width - canvas.width/1.5, canvas.height/2);
   document.getElementById("myCanvas").style.cursor = "pointer";
 }
