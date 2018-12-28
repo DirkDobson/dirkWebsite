@@ -18,7 +18,8 @@ function drawRain() {
 function rainDrop0() {
   can.beginPath();
   can.fillStyle = "lightblue";
-  can.arc(x0, y0, 5, 0, Math.PI*2);
+  can.arc(x0, y0, 5, 5.75, 3.66, false);
+  can.bezierCurveTo(x0 -5, y0 - 5, x0 - 5, y0 - 5, x0, y0)
   can.fill();
   can.closePath();
   y0 = y0 + 6;
@@ -30,7 +31,7 @@ function rainDrop0() {
 function rainDrop1() {
   can.beginPath();
   can.fillStyle = "lightblue";
-  can.arc(x1, y1, 5, 0, Math.PI*2);
+  can.arc(x1, y1, 5, 5.75, 3.66, false);
   can.fill();
   can.closePath();
   y1 = y1 + 6;
@@ -43,7 +44,7 @@ function rainDrop1() {
 function rainDrop2() {
   can.beginPath();
   can.fillStyle = "lightblue";
-  can.arc(x2, y2, 5, 0, Math.PI*2);
+  can.arc(x2, y2, 5, 5.75, 3.66, false);
   can.fill();
   can.closePath();
   y2 += 6;
