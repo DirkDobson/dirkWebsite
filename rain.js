@@ -19,7 +19,7 @@ function rainDrop0() {
   can.beginPath();
   can.fillStyle = "lightblue";
   can.arc(x0, y0, 5, 5.75, 3.66, false);
-  can.bezierCurveTo(x0, y0, x0, y0, x0, y0 - 5)
+  can.bezierCurveTo(x0, x0 - 5, y0, y0 + 5)
   can.bezierCurveTo(x0 - 5, y0, x0, y0 - 5, x0 -5, y0)
   can.fill();
   can.closePath();
