@@ -10,8 +10,8 @@ var y2 = 0
 function drawRain() {
   can.clearRect(0, 0, canvas.width, canvas.height);
   rainDrop0();
-  settimeout(rainDrop(),2000);
-  settimeout(rainDrop(),3000);
+  settimeout(rainDrop(),200);
+  settimeout(rainDrop(),300);
   requestAnimationFrame(drawRain);
 }
 
