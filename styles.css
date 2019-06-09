@@ -19,17 +19,20 @@ h1 {
   padding-top: .6em;
   text-align: center;
   color: #686868;
+  z-index: 1;
 }
 
 h3 {
   text-align: center;
   color: #686868;
+  z-index: 1;
 }
 
 canvas { 
   background: #000000; 
   display: block; 
   margin: 0 auto; 
+  z-index: 1;
 }
 
 a {
@@ -93,7 +96,7 @@ a:visited {
 #center {
   background-color: #000000;
   height: 50em;
-  /* z-index: -3; */
+  z-index: 1;
 }
 
 #right {
@@ -108,12 +111,14 @@ a:visited {
   margin: 1em;
   margin-left: auto;
   margin-right: auto;
+  z-index: 4;
 }
 
 #images {
   display: flex;
   justify-content: space-around;
   margin: auto;
+  z-index: 1;
 }
 
 #empty {
@@ -123,6 +128,14 @@ a:visited {
 
 #movie {
   font-size: 1em !important;
+}
+#rain {
+  position: absolute;
+  z-index: -1; 
+  right: 50%;
+  left: 18%;
+  height: 130em;
+  width: 65em;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -186,10 +199,4 @@ a:visited {
   }
 }
 
-#rain {
- position: absolute;
- z-index: -2;
- right: 50%;
- left: 50%;
-}
 
